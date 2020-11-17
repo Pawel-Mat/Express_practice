@@ -1,7 +1,10 @@
 <h2>Contact me</h2>
 
 {{#if isSent}}
-  <div class="isSent">The message has been sent!</div>
+  <div class="isSent">
+    The message has been sent!
+    File "{{fileValue}}"" has been saved!".
+  </div>
 {{/if}}
 
 {{#if isError}}
@@ -10,7 +13,7 @@
 
 
 
-<form action="/contact/send-message" method="POST">
+<form action="/contact/send-message" method="POST" encypte="multipart/form-data">
   <label>
     Your name: <input type="text" name="author">
   </label>
@@ -20,7 +23,10 @@
   <label>
     Title: <input type="text" name="title">
   </label>
-   <label>
+  
+    Project design: <input type="file" name="fileName" accept=".png,.jpg,.jpeg,.gif">
+  
+  <label>
     Message: <textarea name="message"></textarea>
   </label>
   <button type="submit">Send message</button>
